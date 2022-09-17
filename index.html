@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <form id="container-form">
+        <div id="content">
+            <h1 id="title">Conversor de Decimal para Binario</h1>
+            <div>
+                <input type="number" name="num" onkeyup="verificar(tipo, num)" id="num">
+                <select name="tipo" onchange="limpar(tipo)">
+                    <option value="decimal">Decimal para Binario</option>
+                    <option value="binario">Binario para Decimal</option>
+                </select>
+            </div>
+            <button onclick="limpar(tipo)">Limpar</button>
+            <p id="result"></p>
+        </div>
+    </form>
+
+    
+    <!--Scripts-->
+    <script src="index.js"></script>
+</body>
+
+</html>

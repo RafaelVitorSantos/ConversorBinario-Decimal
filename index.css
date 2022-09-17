@@ -1,0 +1,51 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #171717;
+  opacity: 1;
+  background-image: radial-gradient(#434343 0.55px, #171717 0.55px);
+  background-size: 11px 11px;
+  color: #fff;
+}
+
+#container-form {
+  display: grid;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+input[type="number"],
+select {
+  width: 49%;
+}
+
+button {
+  width: 99%;
+}
+
+#title {
+  font-family: monospace;
+  font-size: 25px;
+}
+
+#content {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (max-width: 700px) {
+  #container-form {
+    width: 75%;
+  }
+
+  #title{
+    font-size: 15px;
+  }
+}
