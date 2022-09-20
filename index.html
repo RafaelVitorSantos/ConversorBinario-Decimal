@@ -10,11 +10,12 @@
 </head>
 
 <body>
-    <form id="container-form">
-        <div id="content">
-            <h1 id="title">Conversor de Decimal para Binario</h1>
-            <div>
-                <input type="number" name="num" onkeyup="verificar(tipo, num)" id="num">
+    <form id="container-form" method="post">
+        <h1 id="title">Conversor de Decimal para Binario</h1>
+        <div class="content">
+            
+            <div style="display: flex; justify-content: center;">
+                <input type="number" name="num" onkeyup="verificar(tipo, num)" id="num" placeholder="digite um numero" min="0">
                 <select name="tipo" onchange="limpar(tipo)">
                     <option value="decimal">Decimal para Binario</option>
                     <option value="binario">Binario para Decimal</option>

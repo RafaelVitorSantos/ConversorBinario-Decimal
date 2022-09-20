@@ -10,6 +10,7 @@ body {
   background-image: radial-gradient(#434343 0.55px, #171717 0.55px);
   background-size: 11px 11px;
   color: #fff;
+  zoom: 1.5;
 }
 
 #container-form {
@@ -22,16 +23,61 @@ body {
 
 input[type="number"],
 select {
-  width: 49%;
+  border-radius: 100px;
+  width: 48%;
+  height: 50px;
+  border: 3px solid #fff;
+  background-color: #111;
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  margin: 2px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-collapse: collapse;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+select::selection {
+  background-color: #111;
+}
+
+input[type="number"]::placeholder,
+select::placeholder {
+  color: chartreuse;
 }
 
 button {
   width: 99%;
+  height: 50px;
+  border-radius: 100px;
+  background-color: #111;
+  border: 3px solid #fff;
+  color: #fff;
+  margin-top: 15px;
 }
 
 #title {
   font-family: monospace;
-  font-size: 25px;
+  font-size: 1.5vw;
+  text-align: center;
+  margin-bottom: 25px;
+  cursor: default;
+}
+
+select:hover {
+  cursor: pointer;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 #content {
@@ -40,12 +86,19 @@ button {
   grid-template-columns: 1fr;
 }
 
+#result {
+  text-align: center;
+  font-family: monospace;
+  margin-top: 25px;
+  color: chartreuse;
+}
+
 @media (max-width: 700px) {
   #container-form {
     width: 75%;
   }
 
-  #title{
-    font-size: 15px;
+  #title {
+    font-size: 2.5vw;
   }
 }

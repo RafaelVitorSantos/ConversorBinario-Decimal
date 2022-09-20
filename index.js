@@ -1,49 +1,53 @@
-function verificar(tipo, Num) {
-    //variavel que escolhe o valor do numero digitado.
-    var num = Num.value;
-    //verifica se o usuario escolheu decimal.
-    if (tipo.value == 'decimal') {
-        //mostra no <p> a String binario.
-        document.getElementById('result').innerText = (Number(num)).toString(2);
-    } else {
-        //variavel que recebe o binario transformado em decimal.
-        let decimal = 0;
-        if (num[0] == '-') {
-            //remove o traço(-) e transforma em um array inteiro.
-            let myFunc = num => String(num);
-            var StringArr = Array.from(num, myFunc);
-            StringArr.splice(0,1)
-            let Int = parseInt(StringArr.join(''))
-            let myFunc02 = Int => parseInt(Int);
-            let IntArr = Array.from(String(Int), myFunc02);
-            let binario = IntArr
+let $cont = 0;
 
-            //laço que encontra o tamanho do numero digitados.
-            for (let i = 0; i < binario.length; i++) {
-                decimal += Math.pow(2, i) * binario[binario.length - i - 1];
+function verificar(tipo, Num) {
+    var num = Num.value;
+    if (tipo.value == 'decimal') {
+        if (num[$cont] == 1 || num[$cont] == 2 || num[$cont] == 3 || num[$cont] == 4 || num[$cont] == 5 || num[$cont] == 6 || num[$cont] == 7 || num[$cont] == 8 || num[$cont] == 9) {
+            if (num.length <= 8 && num < 256) {
+                document.getElementById('result').innerText = null
+                for (let i = 0; i < (8 - (Number(num)).toString(2).length); i++) {
+                    document.getElementById('result').innerText += "0";
+                }
+                document.getElementById('result').innerText += (Number(num)).toString(2);
+                $cont++
+            } else {
+                document.getElementById('result').innerText = "numero nâo pode ser maior que 255";
+                $cont = 0;
             }
-            //adiciona o traço(-) e depois o numero em decimal.
-            document.getElementById('result').innerText = '-' + decimal.toString(); 
         } else {
-            //laço que encontra o tamanho do numero digitados.
-            for (let i = 0; i < num.length; i++) {
-                decimal += Math.pow(2, i) * num[num.length - i - 1];
+            document.getElementById('result').innerText = "Dgite apenas numeros";
+            $cont = 0;
+        }
+    } else {
+        if (num[$cont] == 1 || num[$cont] == 0) {
+
+            if (num.length == 8) {
+                let decimal = 0;
+                for (let i = 0; i < num.length; i++) {
+                    decimal += Math.pow(2, i) * num[num.length - i - 1];
+                }
+                document.getElementById('result').innerText = decimal;
+                $cont = 0;
+            } else {
+                document.getElementById('result').innerText = "Precisa ter 8 digitos";
+                $cont++
             }
-            //adiciona o numero em decimal.
-            document.getElementById('result').innerText = decimal;
+        } else {
+            document.getElementById('result').innerText = "Numero invalido só é permitido 0 ou 1"
         }
     }
 }
+
+
 
 function limpar(tipo) {
     document.getElementById('num').value = null;
     document.getElementById('result').innerText = null;
 
-    if(tipo.value == 'decimal'){
-        //h1 do titulo.
+    if (tipo.value == 'decimal') {
         document.getElementById('title').innerHTML = "Conversor de Decimal para Binario";
     } else {
-        //h1 do titulo.
         document.getElementById('title').innerHTML = "Conversor de Binario para Decimal";
     }
 }
